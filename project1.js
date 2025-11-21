@@ -2,6 +2,8 @@ function setup() {
   createCanvas(400, 400);
     rectMode(CENTER);
   angleMode(DEGREES);
+  //attach canvas to div in html
+  canvas.parent("sketch-container");
 }
 
 function draw() {
