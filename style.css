@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap');
 
-
-/* Global Body */
-
 body {
 
   margin: 0;
@@ -16,8 +13,6 @@ body {
 
 }
 
-
-/* Header */
 
 #top-header {
 
@@ -57,8 +52,6 @@ body {
 
 }
 
-
-/* Navigation Bar */
 
 #top-header nav {
 
@@ -101,9 +94,6 @@ body {
 
 }
 
-
-/* Neon Nav Buttons */
-
 #main-nav a {
 
   text-decoration: none;
@@ -135,8 +125,6 @@ body {
 }
 
 
-/* Main Content */
-
 main {
 
   padding: 30px;
@@ -147,8 +135,6 @@ main {
 
 }
 
-
-/* Headings */
 
 h1 {
 
@@ -177,8 +163,6 @@ h4 {
 }
 
 
-/* Footer */
-
 footer {
 
   background-color: #000000;
@@ -192,15 +176,13 @@ footer {
 }
 
 
-/* ✅ VERTICAL NEON PROJECT BUTTONS */
-
 .project-buttons {
 
   display: flex;
-  flex-direction: column;      /* ✅ vertical stacking */
+  flex-direction: column;  
   gap: 18px;
   margin-top: 30px;
-  max-width: 520px;            /* ✅ button width control */
+  max-width: 520px;   
 
 }
 
@@ -223,9 +205,23 @@ footer {
 
 .project-btn:hover {
 
-  background-color: #ffff00;   /* ✅ NEON YELLOW FILL */
+  background-color: #ffff00;
   color: #000000;
   box-shadow: 0 0 20px #ffff00;
   border-color: #ffff00;
+
+.sketch-row{
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.sketch-row iframe{
+  flex: 0 0 400px;
+}
+.sketch-description{
+  flex: 1;
+  min-width: 280px;
 
 }
