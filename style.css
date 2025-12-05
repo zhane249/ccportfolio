@@ -1,74 +1,145 @@
-
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap');
 
 
 /* Global styles */
 
-* {
-
-  box-sizing: border-box;
-
-}
-
-
 body {
 
   margin: 0;
-
-  padding: 40px;
-
-  font-family: "Courier New", "Lucida Console", monospace; /* typewriter vibe */
-
-  background-color: #f4ecff; /* light purple */
-
-  color: #111;
+  padding: 0;
+  background-color: #1f1f1f;
+  color: antiquewhite;
+  font-family: "Courier New", monospace;
+  line-height: 1.6em;
+  font-size: 18px;
+  scroll-padding-top: 140px;
 
 }
 
 
-/* Page layout */
+/* Header */
+
+#top-header {
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  color: antiquewhite;
+  font-family: "Bitcount Prop Single Ink", monospace;
+  background-color: black;
+  border-bottom: 2px solid brown;
+  box-shadow: 0 2px 8px;
+  flex-direction: column;
+
+}
+
+.header-top {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: antiquewhite;
+  font-family: "Bitcount Prop Single Ink", monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+.header-top img {
+
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+
+}
+
+
+/* Navigation Bar */
+
+#top-header nav {
+
+  flex-basis: 100%;
+  width: 100%;
+  background-color: darkred;
+  box-shadow: 0 2px 5px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#top-header nav ul {
+
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+
+}
+
+#top-header nav a {
+
+  text-decoration: none;
+  color: saddlebrown;
+  font-weight: bolder;
+  padding: 10px 15px;
+  transition: color 0.3s;
+
+}
+
+#top-header nav a:hover {
+
+  color: goldenrod;
+
+}
+
+
+/* Main Navigation Links */
+
+#main-nav a {
+
+  text-decoration: none;
+  color: saddlebrown;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 15px;
+  display: inline-block;
+
+}
+
+#main-nav a:hover {
+
+  color: goldenrod;
+  background-color: #1f1f1f;
+
+}
+
+#main-nav a.active-link {
+
+  background-color: goldenrod;
+  color: black;
+  border-radius: 6px;
+
+}
+
+
+/* Main Content */
 
 main {
 
-  max-width: 900px;
-
-  margin: 0 auto;
-
-}
-
-
-/* Navigation */
-
-nav ul {
-
-  list-style: none;
-
-  padding: 0;
-
-  margin: 0 0 20px 0;
-
-  display: flex;
-
-  gap: 16px;
-
-}
-
-
-nav a {
-
-  text-decoration: none;
-
-  color: #333;
-
-  border-bottom: 2px solid transparent;
-
-  padding-bottom: 2px;
-
-}
-
-
-nav a:hover {
-
-  border-bottom-color: #a98fd3; /* purple accent */
+  padding: 20px;
+  background-color: darkred;
+  border-radius: 8px;
+  margin: 140px 20px 20px 20px;
 
 }
 
@@ -77,55 +148,55 @@ nav a:hover {
 
 h1 {
 
-  font-size: 2.4rem;
-
-  margin-bottom: 10px;
-
-  color: #111;
+  color: goldenrod;
 
 }
-
 
 h2 {
 
-  font-size: 1.4rem;
+  color: #e3d7b6;
 
-  margin-top: 30px;
+}
 
-  margin-bottom: 8px;
+h3 {
 
-  color: #333;
+  color: #b08d57;
+
+}
+
+h4 {
+
+  color: rosybrown;
 
 }
 
 
-/* Paragraphs */
+/* Footer */
 
-p {
+footer {
 
-  line-height: 1.5;
+  background-color: darkslategray;
+  color: ghostwhite;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  border-top: 2px solid olive;
 
 }
-
-
-/* Project iframe */
+/* Embedded Projects */
 
 iframe {
 
-  width: 100%;           /* fills the content width */
-
-  max-width: 800px;      /* don’t get too huge on big screens */
-
-  height: 500px;         /* taller so more of the sketch shows */
-
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
   border: 2px solid #333;
-
   border-radius: 4px;
 
 }
 
 
-/* Optional: keep content off the very edges on mobile */
+/* Mobile spacing */
 
 @media (max-width: 600px) {
 
@@ -136,4 +207,3 @@ iframe {
   }
 
 }
-
