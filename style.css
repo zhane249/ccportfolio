@@ -12,7 +12,9 @@ body {
   scroll-padding-top: 140px;
 
 }
-
+*{
+  box-sizing: border-box;
+}
 
 #top-header {
 
