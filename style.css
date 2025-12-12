@@ -246,7 +246,7 @@ nav li {
     left: 0;
   }
 .circuit-link.left::before{
-  right: -60px;
+  right: 60px;
   top: 50%;
   width:60px;
   height: 2px;
