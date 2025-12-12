@@ -238,7 +238,7 @@ nav li {
   position: relative;
 }
 
-.project-layout{
+.projects-layout{
   display: flex;
   align-items: center;
   gap:40px;
