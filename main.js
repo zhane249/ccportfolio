@@ -1,4 +1,4 @@
-console.log("LIVE MAIN.JS --- HTTPS VERSION");
+console.log("LIVE MAIN.JS HTTPS VERSION LOADED");
 
 //the following code is credited with THREE.js Library and I modified code from Gabriel Molter youtube tutorial on 3D stuff https://www.youtube.com/watch?v=lGokKxJ8D2c&t=1s
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
