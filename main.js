@@ -27,7 +27,10 @@ window.addEventListener("mousemove", (event) =>{
 
 //loader
 const loader= new GLTFLoader();
-loader.load("./models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med.gltf",
+loader.load(
+  "./models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med_FIXED.gltf",
+);
+
   function (gltf){
     object = gltf.scene;
     object.scale.set(50,50,50);
