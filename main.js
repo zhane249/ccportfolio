@@ -26,22 +26,34 @@ window.addEventListener("mousemove", (event) =>{
 });
 
 //loader
-const loader= new GLTFLoader();
+const loader = new GLTFLoader();
+
 loader.load(
   "./models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med_FIXED.gltf",
+
+
+  (gltf) => {
+    object = gltf.scene;
+    object.scale.set(50, 50, 50);
+    scene.add(object);
+
+    renderer.domElement.style.opacity = "1";
+  },
+
+
+  (xhr) => {
+    if (xhr.total > 0) {
+      console.log(Math.round((xhr.loaded / xhr.total) * 100) + "% loaded");
+    } else {
+      console.log("Loading model...");
+    }
+  },
+
+  (error) => {
+    console.error("GLTF load error:", error);
+  }
 );
 
-  function (gltf){
-    object = gltf.scene;
-    object.scale.set(50,50,50);
-    scene.add(object);
-  },
-          function (xhr){
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-          },
-  function (error){
-    console.error(error);
-  }
             );
   //renderer and size
             const renderer = new THREE.WebGLRenderer({ alpha: true }); 
