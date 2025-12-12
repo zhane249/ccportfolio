@@ -239,3 +239,9 @@ nav li {
 
 
 }
+#circuit3D canvas{
+  width: 50vw !important;
+  height: 50vw !important;
+  position: absolute;
+  top: 0;
+  left: 0;
