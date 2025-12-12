@@ -1,9 +1,8 @@
 //the following code is credited with THREE.js Library and I modified code from Gabriel Molter youtube tutorial on 3D stuff https://www.youtube.com/watch?v=lGokKxJ8D2c&t=1s
-import * as THREE from "http://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-//camera
-import { OrbitControls } from "http://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-//gltf file
-import { GLTFLoader } from "http://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+
 
 //scene
 const scene = new THREE.Scene();
