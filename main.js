@@ -30,6 +30,7 @@ const loader= new GLTFLoader();
 loader.load("./models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med.gltf",
   function (gltf){
     object = gltf.scene;
+    object.scale.set(50,50,50);
     scene.add(object);
   },
           function (xhr){
@@ -44,7 +45,7 @@ loader.load("./models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med.gltf",
             renderer.setSize(window.innerWidth, window.innerHeight);
   document.getElementById("circuit3D").appendChild(renderer.domElement);
 //camera from 3d model
-            camera.position.z = objToRender === "dino"? 25 : 500;
+            camera.position.z = objToRender === "dino"? 25 : 50;
             controls = new OrbitControls(camera, renderer.domElement);
 //lights
 const topLight = new THREE.DirectionalLight(0xffffff, 1);
