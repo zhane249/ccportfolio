@@ -10,6 +10,11 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 //scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+ //renderer and size
+            const renderer = new THREE.WebGLRenderer({ alpha: true }); 
+            renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById("circuit3D").appendChild(renderer.domElement);
+
 //initialize gloabl variable for circuit thingie
 let object;
 //camera move around
@@ -54,11 +59,8 @@ loader.load(
   }
 );
 
-            );
-  //renderer and size
-            const renderer = new THREE.WebGLRenderer({ alpha: true }); 
-            renderer.setSize(window.innerWidth, window.innerHeight);
-  document.getElementById("circuit3D").appendChild(renderer.domElement);
+        =
+ 
 //camera from 3d model
             camera.position.z = objToRender === "dino"? 25 : 50;
             controls = new OrbitControls(camera, renderer.domElement);
