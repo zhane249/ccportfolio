@@ -1,4 +1,4 @@
-//THREE.js Library and code modified from Gabriel Molter youtube https://www.youtube.com/watch?v=lGokKxJ8D2c&t=1s
+//the following code is credited with THREE.js Library and I modified code from Gabriel Molter youtube tutorial on 3D stuff https://www.youtube.com/watch?v=lGokKxJ8D2c&t=1s
 import * as THREE from "http://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 //camera
 import { OrbitControls } from "http://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
