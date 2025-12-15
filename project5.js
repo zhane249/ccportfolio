@@ -1,3 +1,4 @@
+console.log{"ml5 is:", typeof ml5);
 //canvas 1
 function sketch1(p) {
   let handPose;
