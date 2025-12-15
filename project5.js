@@ -40,6 +40,7 @@ function sketch1(p) {
     //green dots
     for (let i = 0; i < hands.length; i++) {
       let hand = hands[i];
+      if(!hand.keypoints) continue;
 
       for (let j = 0; j < hand.keypoints.length; j++) {
         let keypoint = hand.keypoints[j];
