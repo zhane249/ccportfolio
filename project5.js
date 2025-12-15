@@ -16,7 +16,6 @@ function sketch1(p) {
     c.parent("canvas1");
     p.frameRate(30);
 
-    //webcame code on
     video = p.createCapture(p.VIDEO);
     video.size(p.width, p.height);
     video.hide();
@@ -25,7 +24,7 @@ function sketch1(p) {
   };
 
   function gotHands(results) {
-    hands = results;
+    hands = results || [];
   }
 
   p.draw = function () {
@@ -36,10 +35,11 @@ function sketch1(p) {
     wrist = undefined;
     middleTip = undefined;
 
-    //green dots
+    if (!Array.isArray(hands)) return;
+
     for (let i = 0; i < hands.length; i++) {
       let hand = hands[i];
-      if (!hand.landmarks) continue;
+      if (!hand || !hand.landmarks) continue;
 
       for (let j = 0; j < hand.landmarks.length; j++) {
         let keypoint = hand.landmarks[j];
@@ -51,12 +51,8 @@ function sketch1(p) {
       let n = 0;
       while (n < hand.landmarks.length) {
         point = hand.landmarks[n];
-        if (n === 0) {
-          wrist = { x: point[0], y: point[1] };
-        }
-        if (n === 12) {
-          middleTip = { x: point[0], y: point[1] };
-        }
+        if (n === 0) wrist = { x: point[0], y: point[1] };
+        if (n === 12) middleTip = { x: point[0], y: point[1] };
         n = n + 1;
       }
 
@@ -75,7 +71,6 @@ function sketch1(p) {
       }
     }
 
-    //text
     p.fill(0, 150);
     p.rect(0, 0, 600, 60);
     p.rect(0, 550, 600, 60);
@@ -110,46 +105,45 @@ function sketch2(p) {
   p.draw = function () {
     p.background(20);
 
-    if (window.handsData && window.handsData.length > 0) {
-      let h = 0;
+    if (!Array.isArray(window.handsData)) return;
 
-      while (h < window.handsData.length) {
-        let hand = window.handsData[h];
-        let hx = hand.x;
-        let hy = hand.y;
-        let hs = hand.size;
+    let h = 0;
+    while (h < window.handsData.length) {
+      let hand = window.handsData[h];
+      let hx = hand.x;
+      let hy = hand.y;
+      let hs = hand.size;
 
-        let found = false;
-        let f = 0;
+      let found = false;
+      let f = 0;
 
-        while (f < flowers.length) {
-          let flower = flowers[f];
-          let dx = flower.x - hx;
-          let dy = flower.y - hy;
+      while (f < flowers.length) {
+        let flower = flowers[f];
+        let dx = flower.x - hx;
+        let dy = flower.y - hy;
 
-          if (p.abs(dx) < 10 && p.abs(dy) < 10) {
-            flower.angle = flower.angle + 0.002;
-            flower.layers = flower.layers + 0.5;
-            found = true;
-          }
-          f = f + 1;
+        if (p.abs(dx) < 10 && p.abs(dy) < 10) {
+          flower.angle = flower.angle + 0.002;
+          flower.layers = flower.layers + 0.5;
+          found = true;
         }
-
-        if (found == false) {
-          let newFlower = {};
-          newFlower.x = hx;
-          newFlower.y = hy;
-          newFlower.size = hs;
-          newFlower.r = p.random(100, 255);
-          newFlower.g = p.random(100, 255);
-          newFlower.b = p.random(100, 255);
-          newFlower.angle = 0;
-          newFlower.layers = 1;
-
-          flowers[flowers.length] = newFlower;
-        }
-        h = h + 1;
+        f = f + 1;
       }
+
+      if (found == false) {
+        let newFlower = {};
+        newFlower.x = hx;
+        newFlower.y = hy;
+        newFlower.size = hs;
+        newFlower.r = p.random(100, 255);
+        newFlower.g = p.random(100, 255);
+        newFlower.b = p.random(100, 255);
+        newFlower.angle = 0;
+        newFlower.layers = 1;
+
+        flowers[flowers.length] = newFlower;
+      }
+      h = h + 1;
     }
 
     let drawCount = 0;
