@@ -19,7 +19,6 @@ function sketch1(p) {
     //webcame code on
     video = p.createCapture(p.VIDEO);
     video.size(p.width, p.height);
-    //hand detector majigy
     video.hide();
 
     handPose = ml5.handpose(video, gotHands);
@@ -40,23 +39,23 @@ function sketch1(p) {
     //green dots
     for (let i = 0; i < hands.length; i++) {
       let hand = hands[i];
-      if(!hand.keypoints) continue;
+      if (!hand.landmarks) continue;
 
-      for (let j = 0; j < hand.keypoints.length; j++) {
-        let keypoint = hand.keypoints[j];
+      for (let j = 0; j < hand.landmarks.length; j++) {
+        let keypoint = hand.landmarks[j];
         p.fill(0, 255, 0);
         p.noStroke();
-        p.circle(keypoint.x, keypoint.y, 10);
+        p.circle(keypoint[0], keypoint[1], 10);
       }
 
       let n = 0;
-      while (n < hand.keypoints.length) {
-        point = hand.keypoints[n];
-        if (point.name == "wrist") {
-          wrist = point;
+      while (n < hand.landmarks.length) {
+        point = hand.landmarks[n];
+        if (n === 0) {
+          wrist = { x: point[0], y: point[1] };
         }
-        if (point.name == "middle_finger_tip") {
-          middleTip = point;
+        if (n === 12) {
+          middleTip = { x: point[0], y: point[1] };
         }
         n = n + 1;
       }
