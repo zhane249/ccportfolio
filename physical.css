@@ -1,4 +1,5 @@
 /* reference-based styling (cleaned + matching your HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
