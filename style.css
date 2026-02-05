@@ -8,7 +8,7 @@ body {
   color: #39ff14;
   font-family: "Courier New", monospace;
   line-height: 1.6em;
-  font-size: 18px;
+  font-size: 18px;lin
   scroll-padding-top: 140px;
 
 }
@@ -255,7 +255,7 @@ nav li {
 }
   .nav-line.top{
     left:50%;
-    top:-60px;
+    top:-80px;
     transform: translateX(-50%);
     height:260px;
   }
@@ -271,7 +271,7 @@ nav li {
   }
   .nav-line.bottom{
     left:50%;
-    bottom:-60px;
+    bottom:-80px;
     transform: translateX(-50%);
     height:260px;
   }
@@ -292,7 +292,7 @@ nav li {
   }
 
   .nav-line.left{
-    left:-120px;
+    left:-150px;
     top:50%;
     transform: translateY(-50%);
     width:320px;
@@ -321,7 +321,7 @@ nav li {
     width:320px;
   }
   .nav-line.right .line{
-    right:110px;
+    right:130px;
     top:-1px;
     width:180px;
     height:4px;
