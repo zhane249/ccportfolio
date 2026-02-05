@@ -54,7 +54,7 @@ loader.load(
 
   (gltf) => {
     object = gltf.scene;
-    object.scale.set(50, 50, 50);
+    object.scale.set(80, 80, 80);
    const box = new THREE.Box3().setFromObject(object);
    const center = box.getCenter(new THREE.Vector3());
    object.position.sub(center);
