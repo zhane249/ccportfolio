@@ -216,8 +216,8 @@ nav li {
   position: absolute;
   left: 50%;
   top:50%;
-  width: 980px;
-  height:960px;
+  width: 680px;
+  height:660px;
   transform: translate(-50%, -50%);
   overflow:hidden;
   z-index:2;
@@ -229,20 +229,20 @@ nav li {
   text-decoration: none;
   color: #00cc00;
   font-family: "Courier New", monospace;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
   z-index: 1;
 }
 .nav-line .line{
   position: absolute;
   background-color: #39ff14;
-  opacity:1.2;
+  opacity:0.9;
 }
 
 .nav-line .dot{
   position: absolute;
-  width: 36px;
-  height:36px;
+  width: 20px;
+  height:20px;
   background-color:#ffff1a;
   border-radius:50%;
   box-shadow: 0 0 16px #ffff1a;
@@ -266,7 +266,7 @@ nav li {
     height:160px;
   }
   .nav-line.top .dot{
-    left:-5px;
+    left:-10px;
     top:200px;
   }
   .nav-line.bottom{
@@ -282,7 +282,7 @@ nav li {
     height:160px;
   }
   .nav-line.bottom .dot{
-    left:-5px;
+    left:-10px;
     bottom:200px;
   }
   .nav-line.bottom .text{
@@ -306,7 +306,7 @@ nav li {
   }
   .nav-line.left .dot{
     left:255px;
-    top:-5px;
+    top:-10px;
   }
 
 .nav-line.left .text{
@@ -328,7 +328,7 @@ nav li {
   }
   .nav-line.right .dot{
     right:255px;
-    top:-5px;
+    top:-10px;
   }
   .nav-line.right .text{
     right:0;
