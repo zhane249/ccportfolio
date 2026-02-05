@@ -216,8 +216,8 @@ nav li {
   position: absolute;
   left: 50%;
   top:50%;
-  width: 280px;
-  height:250px;
+  width: 380px;
+  height:350px;
   transform: translate(-50%, -50%);
   overflow:hidden;
   z-index:2;
