@@ -229,22 +229,23 @@ nav li {
   text-decoration: none;
   color: #00cc00;
   font-family: "Courier New", monospace;
-  font-size: 16px;
+  font-size: 30px;
+  font-weight: bold;
   z-index: 1;
 }
 .nav-line .line{
   position: absolute;
   background-color: #39ff14;
-  opacity:0.8;
+  opacity:1.0;
 }
 
 .nav-line .dot{
   position: absolute;
-  width: 10px;
-  height:10px;
+  width: 16px;
+  height:16px;
   background-color:#ffff1a;
   border-radius:50%;
-  box-shadow: 0 0 10px #ffff1a;
+  box-shadow: 0 0 16px #ffff1a;
 }
 
 .nav-line .text{
@@ -261,8 +262,8 @@ nav li {
   .nav-line.top .line{
     left:-1px;
     top:80px;
-    width:2px;
-    height:120px;
+    width:4px;
+    height:160px;
   }
   .nav-line.top .dot{
     left:-5px;
@@ -277,8 +278,8 @@ nav li {
   .nav-line.bottom .line{
     left:-1px;
     bottom:80px;
-    width:2px;
-    height:120px;
+    width:4px;
+    height:160px;
   }
   .nav-line.bottom .dot{
     left:-5px;
@@ -300,8 +301,8 @@ nav li {
   .nav-line.left .line{
     left:110px;
     top:-1px;
-    width:140px;
-    height:2px;
+    width:180px;
+    height:4px;
   }
   .nav-line.left .dot{
     left:255px;
@@ -322,8 +323,8 @@ nav li {
   .nav-line.right .line{
     right:110px;
     top:-1px;
-    width:140px;
-    height:2px;
+    width:180px;
+    height:4px;
   }
   .nav-line.right .dot{
     right:255px;
