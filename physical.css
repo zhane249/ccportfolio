@@ -250,9 +250,7 @@ body {
 .swiper-slide-active {
   opacity: 1;
 }
-.swiper-slide{
-  opacity:1;
-}
+
   .swiper-slide:not(.swiper-slide-active) .card-surface {
   filter: blur(1px);
 }
