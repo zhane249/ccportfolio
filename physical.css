@@ -1,91 +1,156 @@
+/* the following styling references youtube tutorial https://www.youtube.com/watch?v=w9OpXh3K6YI  */
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+  display: grid;
+  place-content: center;
+  min-height:100vh;
+  width:100vw;
+  background-color:#33001a;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+:root{
+  --timing: 400ms;
+  --rotation:15deg;
+}
+.card{
+  perspective: 100px;
+  width: 16rem;
+  height:24rem;
+}
+.card-inner{
+  position: relative;
+  transform-style: preserved-3d;
+  transition: transform var(--timing)ease;
+  width:100%;
+  height:100%;
+  border-radius: 0.75rem;
+  overflow:hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  background: #ffff33;
+  border: 1px solid #ffff00;
+  -webkit-backdrop-filter: blur(10px;
+  box-shadow: 0 20 px 25px -5px rgba(0,0,0,0.35), 0 10px 10px -5px rgba(0,0,0,0.35), 0 0 26px var(--neonSoft);
+}
+.card:hover .card-inner{
+  transform: rotateX(var(--rotation));
+}
+.card-inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:100;
+  background-image: radial-gradient{circle, transparent 150px, rgba(0,0,0,0.3));
+  opacity:0;
+transition: opacity var(--timing);
+                                    border-radius: 1rem;
+}
+.card:hover .card-inner::before{
+  opacity:1;
+}
+.card-content{
+  position:relative;
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+.card-background{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  opacity:0.1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+}
+.card-number{
+  position: absolute;
+  top:0.5rem;
+  left:0.5rem;
+  background-color:#ffff66
+  color:white;
+  padding:0.25rem 0.5rem;
+  border-radius:0.5rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+.card-image{
+  width:100%;
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:1.5rem;
+  transform:translateZ(20px);
+  transition:transform var(--timing);
+}
+.card:hover .card-image{
+  transform: translateZ(40px translateY(-10px);
+}
+.card-image img{
+  width:100%;
+  height:auto;
+  filter: drop-shadow( 0 0 12px var(--neonSoft));
+}
+.card-info{
+  padding:1rem;
+  ackground-color: rgba(0,0,0,0.22);
+  border-top:1px solid #ffff66;
+  backdrop-filter: blur(6px);
+  transform: translateZ(10px);
+  transition: transform var(--timing);
+}
+.card:hover .pokemon-info{
+  transform: translateZ(30px) translateY(-5px);
+}
+.card-info h2{
+  font-size:1.5rem;
+  font-weight: bold;
+  color:#999900;
+  text-align: center;
+  margin-bottom:0.5rem;
+  font-family: san-serif;
+}
+.shiny-effect{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+pointer-events:none;
+  animation:shimmer 2s linear infinite;
+  mix-blend-mode: screen;
+}
 
-//the following code is referenced from this youtube tutorial https://www.youtube.com/watch?v=w9OpXh3K6YI and modified to fit my design -->
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="wide=device-width, initial-scale=1.0/>
-      <title>Cool Physical Computation Deck!</title>
-
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
- 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <style>
-    *{ margin:0;
-      padding:0;
-      box-sizing: border-box;
-     }
-    body{
-      display: grid;
-      place-content: center;
-      min-height: 100vhl
-        width: 100vm;
-      background-color:#660033;
-      overflow: hidden;
-   font-family: sans-serif;
-    }
-    .container{
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    :root{
-      --timing: 400ms;
-      --rotation: 15deg;
-    }
-    .card{
-      perspective: 1000px;
-      width: 16rem;
-      height:24rem;
-    }
-    .card-inner{
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform var(--timing) easel
-        width:100%;
-      height:100%,
-        border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: 0 20px 25px 25px -5px rgba( 0, 0,0,0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    .card:hover .card-inner{
-      transform: rotateX(var(--rotation));
-    }
-
-    .card-inner:: before{
-      content:"";
-      position: absolute;
-      inset: 0;
-      z-index: 100;
-      back
-      
-
-
-      
-    <style>
-      @keyframes shimmer{
-      }
-      </style>
-  </head>
-  <body>
-    <div class="container">
-
-
-      
-  </body>
-    </style>
-  </head>
-    <footer>
-        <p><small>2025 Yifan Eva Zhang. All rights reserved.</small></p>
-        <address>
-         <a href="mailto:yifanezhang@gmail.com">Contact Me</a><br>
-Social Media: <br>
-<a href="https://www.instagram.com/_ezzzart_" target="ext-links">Instagram</a><br>
-<a href="https://www.linkedin.com/in/yifan-zhang-72b241290/" target="ext-links">LinkedIn</a><br>
-        </address>
-  </footer>
-</html>
-
+@keyframes shimmer{
+  0%{
+    background-position: -200% 0;
+  }
+  100%{
+    background-position:200% 0;
+  }
+}
+.swiper{
+  width:100%;
+  max-width:72rem;
+}
+.swiper-wrapper{
+  padding-bottom: 3rem;
+}
+.swiper-slide{
+  display:flex;
+  justify-content:center;
+}
+  
+  
