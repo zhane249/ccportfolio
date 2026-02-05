@@ -338,19 +338,11 @@ nav li {
 
 .img-row{
   display:flex;
-}
-.img-row img{
-  margin-left: auto;
-  height:auto;
+  gap:20px;
+  align-items:center;
 }
 
-.img-row2{
-  display:flex;
-}
-.img-row2 img{
-  margin-right: auto;
-  height:auto;
-}
+
 
 
   
