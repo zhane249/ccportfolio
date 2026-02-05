@@ -12,10 +12,12 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
  //renderer and size
             const renderer = new THREE.WebGLRenderer({ alpha: true }); 
+
+const container = document.getElementById("circuit3D");
+container.appendChild(renderer.domElement);
            // renderer.setSize(window.innerWidth, window.innerHeight);
-//  document.getElementById("circuit3D").appendChild(renderer.domElement);
+// document.getElementById("circuit3D").appendChild(renderer.domElement);
 function resizeToContainer(){
- const container = document.getElementById("circuit3D");
  const w = container.clientWidth;
  const h = container.clientHeight;
  if(!w ||!h) return;
@@ -99,10 +101,10 @@ const topLight = new THREE.DirectionalLight(0xffffff, 1);
          
             renderer.render(scene, camera);
             }        
-            window.addEventListener("resize", function (){
+          /*  window.addEventListener("resize", function (){
               camera.aspect = window.innerWidth/ window.innerHeight;
               
               camera.updateProjectionMatrix();
               renderer.setSize(window.innerWidth, window.innerHeight);
             });
-            animate();
+            animate();*/
