@@ -305,7 +305,7 @@ nav li {
     height:4px;
   }
   .nav-line.left .dot{
-    left:255px;
+    left:275px;
     top:-10px;
   }
 
@@ -327,7 +327,7 @@ nav li {
     height:4px;
   }
   .nav-line.right .dot{
-    right:255px;
+    right:285px;
     top:-10px;
   }
   .nav-line.right .text{
