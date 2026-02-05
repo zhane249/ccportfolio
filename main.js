@@ -55,8 +55,14 @@ loader.load(
   (gltf) => {
     object = gltf.scene;
     object.scale.set(50, 50, 50);
-    scene.add(object);
+   const box = new THREE.Box3().setFromObject(object);
+   const center = box.getCenter(new THREE.Vector3());
+   object.position.sub(center);
 
+   object.rotation.x = -0.4;
+   object.rotation.y = 0.6;
+   
+    scene.add(object);
     renderer.domElement.style.opacity = "1";
   },
 
@@ -96,8 +102,9 @@ const topLight = new THREE.DirectionalLight(0xffffff, 1);
               object.rotation.x = 1.2 + (mouseY * 2.5) / window.innerHeight;
             }*/
              if(object){
-              object.rotation.y += 0.008;}
-             
+              object.rotation.y +=0.004;
+              object.rotation.x += 0.001;
+             }
            //   controls.update();
          
             renderer.render(scene, camera);
