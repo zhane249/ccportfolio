@@ -344,6 +344,13 @@ nav li {
   height:auto;
 }
 
+.img-row2{
+  display:flex;
+}
+.img-row2 img{
+  margin-right: auto;
+  height:auto;
+}
 
 
   
