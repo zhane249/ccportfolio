@@ -82,7 +82,7 @@ loader.load(
 
 //camera from 3d model
            // camera.position.z = objToRender === "dino"? 25 : 50;
-camera.position.z = 20;
+camera.position.z = 30;
          //   controls = new OrbitControls(camera, renderer.domElement);
 
 //lights
