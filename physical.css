@@ -242,7 +242,7 @@ main.container{
   justify-content: center;
   
   
-  opacity: 0.25;
+  opacity: 0.45;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
