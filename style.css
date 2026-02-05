@@ -216,8 +216,8 @@ nav li {
   position: absolute;
   left: 50%;
   top:50%;
-  width: 680px;
-  height:660px;
+  width: 980px;
+  height:960px;
   transform: translate(-50%, -50%);
   overflow:hidden;
   z-index:2;
@@ -229,20 +229,20 @@ nav li {
   text-decoration: none;
   color: #00cc00;
   font-family: "Courier New", monospace;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   z-index: 1;
 }
 .nav-line .line{
   position: absolute;
   background-color: #39ff14;
-  opacity:1.0;
+  opacity:1.2;
 }
 
 .nav-line .dot{
   position: absolute;
-  width: 16px;
-  height:16px;
+  width: 36px;
+  height:36px;
   background-color:#ffff1a;
   border-radius:50%;
   box-shadow: 0 0 16px #ffff1a;
