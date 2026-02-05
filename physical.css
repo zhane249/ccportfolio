@@ -122,8 +122,8 @@ main.container{
 
 .card {
   perspective: 1000px;
-  width: 16rem;
-  height: 24rem;
+  width: 360px;
+  height: 460px;
 }
 
 
