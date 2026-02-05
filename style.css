@@ -231,14 +231,19 @@ nav li {
 }
 
 #circuit3D{
-  flex: 0 0 480px;
-  max-width: 300px;
+  flex: 0 0 520px;
+  height: 520px;
+  max-width:520px;
+  margin-left: autp;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
 }
 
 #circuit3D canvas{
-  width: 80%;
-  height: 400px;
-  position: relative;
+  width: 100%
+  height: 100%
+ display: block
 }
 
 .projects-layout{
@@ -247,6 +252,23 @@ nav li {
   gap:40px;
   flex-wrap: nowrap;
 }
+@media(max- width:900%){
+  .projects-layout{
+    flex-direction:column;
+    align-items: center;
+  }
+  #circuit3D{
+    flex: none;
+    width: 100%;
+    max-width:520px;
+    height: 420px;
+  }
+  .project-buttons{
+    max-width: 520px;
+    width:100%;
+  }
+}
+    
 #canvas-row {
   display: flex;
   flex-direction: row;
