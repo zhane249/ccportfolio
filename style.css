@@ -255,7 +255,7 @@ nav li {
 }
   .nav-line.top{
     left:50%;
-    top:0;
+    top:-60px;
     transform: translateX(-50%);
     height:260px;
   }
@@ -271,7 +271,7 @@ nav li {
   }
   .nav-line.bottom{
     left:50%;
-    bottom:0;
+    bottom:-60px;
     transform: translateX(-50%);
     height:260px;
   }
@@ -292,7 +292,7 @@ nav li {
   }
 
   .nav-line.left{
-    left:0;
+    left:-120px;
     top:50%;
     transform: translateY(-50%);
     width:320px;
@@ -315,9 +315,9 @@ nav li {
 }
 
   .nav-line.right{
-    right:-40px;
+    right:-160px;
     top:50%;
-    transform: translate(-50%);
+    transform: translateY(-50%);
     width:320px;
   }
   .nav-line.right .line{
