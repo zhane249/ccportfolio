@@ -345,6 +345,7 @@ nav li {
 
 .img-row{
   display:flex;
+  flex-direction: row;
   gap:20px;
   align-items:center;
 }
