@@ -169,3 +169,29 @@ body {
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
 }
+.swiper-slide {
+  opacity: 0.25;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 0.5;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+.swiper-slide{
+  opacity:1;
+}
+  .swiper-slide:not(.swiper-slide-active) .card-surface {
+  filter: blur(1px);
+}
+.swiper-slide:not(.swiper-slide-active) .card-surface {
+  box-shadow:
+    0 12px 25px rgba(0,0,0,0.4),
+    0 0 10px rgba(255,255,100,0.15);
+}
+
