@@ -1,4 +1,4 @@
-/* reference-based styling (cleaned + matching your HTML) */
+/* reference-based on https://www.youtube.com/watch?v=w9OpXh3K6YI and edited to fit my elements  */
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap');
 * {
   margin: 0;
