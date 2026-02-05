@@ -46,7 +46,8 @@ let objToRender = 'circuit';
 const loader = new GLTFLoader();
 
 loader.load(
-  "./models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med_FIXED.gltf",
+  "/ccportfolio/models/PCB_Modern_06_GLTF/SM_PCB_Modern_06_Med_FIXED.gltf",
+
 
 
   (gltf) => {
