@@ -1,156 +1,171 @@
-/* the following styling references youtube tutorial https://www.youtube.com/watch?v=w9OpXh3K6YI  */
-*{
+/* reference-based styling (cleaned + matching your HTML) */
+* {
   margin: 0;
-  padding:0;
+  padding: 0;
   box-sizing: border-box;
 }
-body{
+
+:root {
+  --timing: 400ms;
+  --rotation: 15deg;
+  --neonSoft: rgba(255, 255, 80, 0.35);
+}
+
+body {
   display: grid;
   place-content: center;
-  min-height:100vh;
-  width:100vw;
-  background-color:#33001a;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #33001a;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
-.container{
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-:root{
-  --timing: 400ms;
-  --rotation:15deg;
+
+.deck-title {
+  color: white;
+  text-align: center;
+  margin: 0 0 18px;
+  font-size: 28px;
+  font-weight: 700;
 }
-.card{
-  perspective: 100px;
+
+
+.swiper {
+  width: 100%;
+  max-width: 72rem;
+}
+
+.swiper-wrapper {
+  padding-bottom: 3rem;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  perspective: 1000px;
   width: 16rem;
-  height:24rem;
+  height: 24rem;
 }
-.card-inner{
+
+
+.card-surface {
   position: relative;
-  transform-style: preserved-3d;
-  transition: transform var(--timing)ease;
-  width:100%;
-  height:100%;
+  transform-style: preserve-3d;
+  transition: transform var(--timing) ease;
+  width: 100%;
+  height: 100%;
   border-radius: 0.75rem;
-  overflow:hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-  background: #ffff33;
-  border: 1px solid #ffff00;
-  -webkit-backdrop-filter: blur(10px;
-  box-shadow: 0 20 px 25px -5px rgba(0,0,0,0.35), 0 10px 10px -5px rgba(0,0,0,0.35), 0 0 26px var(--neonSoft);
+  overflow: hidden;
+
+
+  background: rgba(255, 255, 80, 0.10);
+  border: 1px solid rgba(255, 255, 80, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.35),
+    0 10px 10px -5px rgba(0, 0, 0, 0.25),
+    0 0 26px var(--neonSoft);
 }
-.card:hover .card-inner{
+
+.card:hover .card-surface {
   transform: rotateX(var(--rotation));
 }
-.card-inner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:100;
-  background-image: radial-gradient{circle, transparent 150px, rgba(0,0,0,0.3));
-  opacity:0;
-transition: opacity var(--timing);
-                                    border-radius: 1rem;
-}
-.card:hover .card-inner::before{
-  opacity:1;
-}
-.card-content{
-  position:relative;
-  width:100%;
-  height:100%;
-  display: flex;
-  flex-direction: column;
-}
-.card-background{
+
+.card-surface::before {
+  content: "";
   position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  opacity:0.1;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
+  inset: 0;
+  z-index: 10;
+  background-image: radial-gradient(
+    circle,
+    transparent 150px,
+    rgba(0, 0, 0, 0.3)
+  );
+  opacity: 0;
+  transition: opacity var(--timing);
+  border-radius: 1rem;
 }
-.card-number{
+
+.card:hover .card-surface::before {
+  opacity: 1;
+}
+
+
+.card-header {
   position: absolute;
-  top:0.5rem;
-  left:0.5rem;
-  background-color:#ffff66
-  color:white;
-  padding:0.25rem 0.5rem;
-  border-radius:0.5rem;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 20;
+}
+
+.card-id {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
   font-size: 0.75rem;
   font-family: monospace;
 }
-.card-image{
-  width:100%;
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:1.5rem;
-  transform:translateZ(20px);
-  transition:transform var(--timing);
-}
-.card:hover .card-image{
-  transform: translateZ(40px translateY(-10px);
-}
-.card-image img{
-  width:100%;
-  height:auto;
-  filter: drop-shadow( 0 0 12px var(--neonSoft));
-}
-.card-info{
-  padding:1rem;
-  ackground-color: rgba(0,0,0,0.22);
-  border-top:1px solid #ffff66;
-  backdrop-filter: blur(6px);
-  transform: translateZ(10px);
+.card-media {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+
+  transform: translateZ(20px);
   transition: transform var(--timing);
-}
-.card:hover .pokemon-info{
-  transform: translateZ(30px) translateY(-5px);
-}
-.card-info h2{
-  font-size:1.5rem;
-  font-weight: bold;
-  color:#999900;
-  text-align: center;
-  margin-bottom:0.5rem;
-  font-family: san-serif;
-}
-.shiny-effect{
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-pointer-events:none;
-  animation:shimmer 2s linear infinite;
-  mix-blend-mode: screen;
+  position: relative;
+  z-index: 20;
 }
 
-@keyframes shimmer{
-  0%{
-    background-position: -200% 0;
-  }
-  100%{
-    background-position:200% 0;
-  }
+.card:hover .card-media {
+  transform: translateZ(40px) translateY(-10px);
 }
-.swiper{
-  width:100%;
-  max-width:72rem;
+
+.card-media img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 12px var(--neonSoft));
 }
-.swiper-wrapper{
-  padding-bottom: 3rem;
+
+.card-content {
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(255, 255, 80, 0.25);
+  backdrop-filter: blur(6px);
+
+  transform: translateZ(10px);
+  transition: transform var(--timing);
+  position: relative;
+  z-index: 20;
 }
-.swiper-slide{
-  display:flex;
-  justify-content:center;
+
+.card:hover .card-content {
+  transform: translateZ(30px) translateY(-5px);
 }
-  
-  
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+}
