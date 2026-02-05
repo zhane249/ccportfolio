@@ -75,7 +75,8 @@ loader.load(
 );
 
 //camera from 3d model
-            camera.position.z = objToRender === "dino"? 25 : 50;
+           // camera.position.z = objToRender === "dino"? 25 : 50;
+camera.position.z = 120;
          //   controls = new OrbitControls(camera, renderer.domElement);
 
 //lights
@@ -106,5 +107,5 @@ const topLight = new THREE.DirectionalLight(0xffffff, 1);
               
               camera.updateProjectionMatrix();
               renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-            animate();*/
+            });*/
+            animate();
