@@ -12,8 +12,20 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
  //renderer and size
             const renderer = new THREE.WebGLRenderer({ alpha: true }); 
-            renderer.setSize(window.innerWidth, window.innerHeight);
-  document.getElementById("circuit3D").appendChild(renderer.domElement);
+           // renderer.setSize(window.innerWidth, window.innerHeight);
+//  document.getElementById("circuit3D").appendChild(renderer.domElement);
+function resizeToContainer(){
+ const container = document.getElementById("circuit3D");
+ const w = container.clientWidth;
+ const h = container.clientHeight;
+ if(!w ||!h) return;
+
+ camera.aspect = w/h;
+ camera.updateProjectionMatrix();
+ renderer.setSize(w,h,false);
+}
+window.addEventListener("resize", resizeToContainer);
+resizeToContainer();
 
 //initialize gloabl variable for circuit thingie
 let object;
@@ -22,13 +34,13 @@ let controls;
 //object for rendering
 let objToRender = 'circuit';
 
-let mouseX =0;
-let mouseY = 0;
+//let mouseX =0;
+//let mouseY = 0;
 
-window.addEventListener("mousemove", (event) =>{
+/*window.addEventListener("mousemove", (event) =>{
   mouseX = event.clientX;
   mouseY = event.clientY;
-});
+});*/
 
 //loader
 const loader = new GLTFLoader();
@@ -61,7 +73,8 @@ loader.load(
 
 //camera from 3d model
             camera.position.z = objToRender === "dino"? 25 : 50;
-            controls = new OrbitControls(camera, renderer.domElement);
+         //   controls = new OrbitControls(camera, renderer.domElement);
+
 //lights
 const topLight = new THREE.DirectionalLight(0xffffff, 1);
             topLight.position.set(500, 500, 500);
@@ -74,11 +87,15 @@ const topLight = new THREE.DirectionalLight(0xffffff, 1);
             function animate(){
               requestAnimationFrame(animate);
               
-              if(object && objToRender === 'circuit'){
+          /*    if(object && objToRender === 'circuit'){
                 object.rotation.y =-3 +( mouseX / window.innerWidth)* 3;
               object.rotation.x = 1.2 + (mouseY * 2.5) / window.innerHeight;
-            }
-              controls.update();
+            }*/
+             if(object){
+              object.rotation.y += 0.008;}
+             
+           //   controls.update();
+         
             renderer.render(scene, camera);
             }        
             window.addEventListener("resize", function (){
