@@ -269,6 +269,13 @@ nav li {
     left:-10px;
     top:200px;
   }
+.nav-line.top .text{
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+
   .nav-line.bottom{
     left:50%;
     bottom:-80px;
@@ -288,7 +295,7 @@ nav li {
   .nav-line.bottom .text{
     bottom:30px;
     left:50%;
-    transform:translateX(-50);
+    transform:translateX(-50%);
   }
 
   .nav-line.left{
