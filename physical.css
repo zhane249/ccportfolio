@@ -83,7 +83,8 @@ body {
   min-height: 100vh;
   width: 100vw;
   background-color: #33001a;
-  overflow: hidden;
+  overflow-x:hidden;
+  overflow-y:auto;
   font-family: "Bricolage Grotesque", sans-serif;
 }
 
@@ -108,17 +109,14 @@ main.container{
 
 .swiper {
   width: 100%;
-  max-width: 72rem;
+  max-width: 420px;
 }
 
 .swiper-wrapper {
   padding-bottom: 3rem;
 }
 
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-}
+
 
 .card {
   perspective: 1000px;
@@ -240,6 +238,11 @@ main.container{
   text-align: center;
 }
 .swiper-slide {
+  display:flex;
+  justify-content: center;
+  width:360px;
+  height:460px;
+  
   opacity: 0.25;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -282,4 +285,5 @@ body.physical-page main {
   margin: 0;
   padding: 40px 20px;
 }
+
 
