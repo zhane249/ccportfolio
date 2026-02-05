@@ -229,7 +229,7 @@ nav li {
   text-decoration: none;
   color: #00cc00;
   font-family: "Courier New", monospace;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   z-index: 1;
 }
@@ -261,7 +261,7 @@ nav li {
   }
   .nav-line.top .line{
     left:-1px;
-    top:80px;
+    top:60px;
     width:4px;
     height:160px;
   }
@@ -292,7 +292,7 @@ nav li {
   }
 
   .nav-line.left{
-    left:-150px;
+    left:-190px;
     top:50%;
     transform: translateY(-50%);
     width:320px;
