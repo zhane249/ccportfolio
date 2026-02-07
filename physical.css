@@ -1,11 +1,11 @@
-/* reference-based on https://www.youtube.com/watch?v=w9OpXh3K6YI and edited to fit my elements  */
+/* reference-based on https://www.youtube.com/watch?v=w9OpXh3K6YI and edited to fit my elements with https://developer.mozilla.org/en-US/ and https://www.w3schools.com/ */
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+/*https://www.w3schools.com/cssref/sel_root.php*/
 :root {
   --timing: 400ms;
   --rotation: 15deg;
@@ -148,7 +148,7 @@ main.container{
   border: 1px solid rgba(255, 255, 80, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/backdrop-filter*/
   box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.35),
     0 10px 10px -5px rgba(0, 0, 0, 0.25),
