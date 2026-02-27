@@ -185,7 +185,8 @@ footer {
   flex-wrap: wrap;
 }
 .sketch-row iframe{
-  flex: 0 0 400px;
+  flex: 1 1 300px;
+  max-width:500px;
 }
 .sketch-description{
   flex: 1;
