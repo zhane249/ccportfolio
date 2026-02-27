@@ -178,17 +178,16 @@ footer {
 }
 
 .sketch-row{
-  display: flex;
+  display: grid;
   gap: 30px;
-  align-items: flex-start;
-  margin-top: 20px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  grid-template-columns: repeat(3, 1fr);
+ justify-content: center;
+  margin-top:20px
 }
 .sketch-row iframe{
   width: 500px;
   height:500px;
-  flex-shrink:0;
+display: block;
 }
 .sketch-description{
   flex: 1;
