@@ -182,11 +182,13 @@ footer {
   gap: 30px;
   align-items: flex-start;
   margin-top: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 .sketch-row iframe{
-  flex: 1 1 300px;
-  max-width:500px;
+  width: 500px;
+  height:500px;
+  flex-shrink:0;
 }
 .sketch-description{
   flex: 1;
