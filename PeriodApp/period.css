@@ -250,15 +250,13 @@ body {
   width: 26px;
   height: 48px;
   border-radius: 16px;
-  background: linear-gradient(to bottom, #ff45e6, #d98db8);
+  background: #de9999;
+  border: 2px solid #ff5a5a;
   position: absolute;
   left: 22px;
   top: calc(35% - 24px);
   cursor: grab;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-  touch-action: none;
 }
-
 .quiz1 .pain-knob:active {
   cursor: grabbing;
 }
