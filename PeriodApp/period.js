@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setupPainSlider();
+  setupSymptomButtons();
 });
 
 function setupPainSlider() {
@@ -47,9 +48,9 @@ function setupPainSlider() {
   function setSliderPosition(clientY) {
     const trackRect = track.getBoundingClientRect();
     const knobHeight = knob.offsetHeight;
+    const maxTop = track.offsetHeight - knobHeight;
 
     let newTop = clientY - trackRect.top - knobHeight / 2;
-    const maxTop = track.offsetHeight - knobHeight;
 
     if (newTop < 0) newTop = 0;
     if (newTop > maxTop) newTop = maxTop;
@@ -60,49 +61,35 @@ function setupPainSlider() {
     fill.style.height = `${fillHeight}px`;
   }
 
-  knob.addEventListener("pointerdown", (e) => {
+  function startDrag(e) {
     isDragging = true;
-    knob.setPointerCapture(e.pointerId);
-  });
+    if (e.pointerId !== undefined) {
+      knob.setPointerCapture(e.pointerId);
+    }
+    setSliderPosition(e.clientY);
+    e.preventDefault();
+  }
 
-  knob.addEventListener("pointermove", (e) => {
+  function moveDrag(e) {
     if (!isDragging) return;
     setSliderPosition(e.clientY);
-  });
+    e.preventDefault();
+  }
 
-  knob.addEventListener("pointerup", () => {
+  function endDrag() {
     isDragging = false;
-  });
+  }
 
-  knob.addEventListener("pointercancel", () => {
-    isDragging = false;
-  });
+  knob.addEventListener("pointerdown", startDrag);
+  knob.addEventListener("pointermove", moveDrag);
+  knob.addEventListener("pointerup", endDrag);
+  knob.addEventListener("pointercancel", endDrag);
 
   track.addEventListener("pointerdown", (e) => {
     setSliderPosition(e.clientY);
+    e.preventDefault();
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const currentDateEl = document.getElementById("currentDate");
-  const statusNumberEl = document.getElementById("statusNumber");
-  const nextCycleNumberEl = document.getElementById("nextCycleNumber");
-
-  if (currentDateEl) {
-    currentDateEl.textContent = formatCurrentDate();
-  }
-
-  if (statusNumberEl) {
-    statusNumberEl.textContent = randomInt(1, 28);
-  }
-
-  if (nextCycleNumberEl) {
-    nextCycleNumberEl.textContent = `${randomInt(20, 40)} days`;
-  }
-
-  setupPainSlider();
-  setupSymptomButtons();
-});
 
 function setupSymptomButtons() {
   const symptomButtons = document.querySelectorAll(".symptom-pill");
@@ -115,4 +102,3 @@ function setupSymptomButtons() {
     });
   });
 }
-
