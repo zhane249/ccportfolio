@@ -6,6 +6,11 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f4caca;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2a1f1f;
 }
 
 .app-shell {
@@ -15,62 +20,185 @@ body {
   overflow: hidden;
   position: relative;
   border-radius: 36px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .app-screen {
   width: 100%;
   height: 100%;
-  padding: 26px 20px 26px;
-  box-sizing: border-box;
+  padding: 22px 16px 22px;
   display: flex;
   flex-direction: column;
 }
 
+/* shared top section */
+
 .top-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 18px;
-  margin-bottom: 14px;
+  gap: 8px;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
 
 .calendar-icon {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .progress-row {
   display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
+  gap: 8px;
+  margin-bottom: 22px;
 }
 
 .progress-pill {
   flex: 1;
-  height: 9px;
+  height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .progress-pill.filled {
   background: #ff8d8d;
 }
 
-.quiz-title {
+/* shared nav */
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.nav-btn {
+  flex: 1;
+  height: 38px;
+  background: #de9999;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #5b2a2a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav-btn:hover,
+.next-step-btn:hover {
+  filter: brightness(0.97);
+}
+
+/* homepage only */
+
+.homepage .status-box {
+  border: 2px solid #4f9cff;
+  border-radius: 34px;
+  background: #de9999;
+  padding: 14px 12px 16px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.homepage .status-box h1 {
+  margin: 0 0 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.homepage .status-values {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.homepage .pill {
+  background: #e7aaaa;
+  border-radius: 14px;
+  padding: 9px 18px;
+  font-size: 14px;
+  min-width: 56px;
+  text-align: center;
+}
+
+.homepage .cycle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 0 2px;
+  margin-bottom: 14px;
+}
+
+.homepage .info-box {
+  background: #de9999;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 118px;
+  margin-bottom: 18px;
+}
+
+.homepage .info-left {
+  width: 40%;
+  font-family: serif;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 6px;
+}
+
+.homepage .info-right {
+  width: 48%;
+  background: #d9d9d9;
+  border-radius: 12px;
+  padding: 12px 10px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* quiz shared */
+
+.quiz-screen .quiz-title {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.35;
   margin: 0 0 20px;
 }
 
-.pain-area {
+.quiz-screen .quiz-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+  margin-bottom: 20px;
+}
+
+.quiz-screen .next-step-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: #de9999;
+  color: #1f1414;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* quiz 1 slider page */
+
+.quiz1 .pain-area {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   margin-top: 8px;
 }
 
-.pain-track {
+.quiz1 .pain-track {
   width: 145px;
   height: 520px;
   border-radius: 32px;
@@ -81,7 +209,7 @@ body {
   touch-action: none;
 }
 
-.pain-fill {
+.quiz1 .pain-fill {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -91,7 +219,7 @@ body {
   border-radius: 0 0 30px 30px;
 }
 
-.pain-knob {
+.quiz1 .pain-knob {
   width: 56px;
   height: 56px;
   border-radius: 20px;
@@ -104,11 +232,11 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-.pain-knob:active {
+.quiz1 .pain-knob:active {
   cursor: grabbing;
 }
 
-.pain-labels {
+.quiz1 .pain-labels {
   height: 520px;
   display: flex;
   flex-direction: column;
@@ -117,13 +245,13 @@ body {
   flex: 1;
 }
 
-.pain-label {
+.quiz1 .pain-label {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.pain-line {
+.quiz1 .pain-line {
   display: block;
   width: 42px;
   height: 4px;
@@ -131,207 +259,129 @@ body {
   background: rgba(255, 255, 255, 0.95);
 }
 
-.pain-emoji {
+.quiz1 .pain-emoji {
   font-size: 20px;
   line-height: 1;
 }
 
-.quiz-bottom {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 22px;
-  margin-bottom: 28px;
-}
+/* quiz 2 symptom page */
 
-.next-step-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 14px;
-  background: #de9999;
-  color: #1f1414;
-  text-decoration: none;
-  font-size: 12px;
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  margin-top: auto;
-}
-
-.nav-btn {
-  flex: 1;
-  height: 42px;
-  background: #de9999;
-  border-radius: 999px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: #5b2a2a;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.nav-btn:hover,
-.next-step-btn:hover {
-  filter: brightness(0.97);
-}
-
-.status-box {
-  border: 2px solid #4f9cff;
-  border-radius: 40px;
-  background: #de9999;
-  padding: 18px 14px 20px;
-  text-align: center;
-}
-
-.status-box h1 {
-  margin: 0 0 12px;
-  color: white;
-  font-size: 26px;
-  font-weight: 400;
-}
-
-.status-values {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-
-.pill {
-  background: #e7aaaa;
-  border-radius: 18px;
-  padding: 14px 22px;
-  font-size: 18px;
-  min-width: 72px;
-  text-align: center;
-}
-
-.cycle-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 17px;
-  padding: 0 10px;
-}
-
-.info-box {
-  background: #de9999;
-  border-radius: 16px;
-  padding: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  min-height: 120px;
-}
-
-.info-left {
-  width: 40%;
-  font-family: serif;
-  font-size: 18px;
-  text-align: center;
-  line-height: 1.3;
-}
-
-.info-right {
-  width: 48%;
-  background: #d9d9d9;
-  border-radius: 12px;
-  padding: 14px 10px;
-  font-size: 12px;
-  line-height: 1.35;
-}
-
-.symptom-grid {
+.quiz2 .symptom-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px 18px;
-  margin-top: 18px;
+  gap: 14px;
+  margin-top: 12px;
   align-content: start;
 }
 
-.symptom-pill {
+.quiz2 .symptom-pill {
   width: 100%;
-  min-height: 72px;
+  min-height: 94px;
   border: none;
-  border-radius: 999px;
+  border-radius: 28px;
   background: #efefef;
   color: #1d1717;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 14px;
-  padding: 0 18px;
-  font-size: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 14px 12px;
   text-align: left;
   cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
-.symptom-pill:hover {
+.quiz2 .symptom-pill:hover {
   transform: translateY(-1px);
 }
 
-.symptom-pill:active {
+.quiz2 .symptom-pill:active {
   transform: scale(0.98);
 }
 
-.symptom-pill.selected {
-  background: #de9999;
-  box-shadow: inset 0 0 0 2px #f04bd8;
+.quiz2 .symptom-pill.selected {
+  background: #ffffff;
+  box-shadow: inset 0 0 0 3px #f04bd8;
 }
 
-.symptom-icon {
-  font-size: 28px;
-  line-height: 1;
+.quiz2 .symptom-label-mini {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.28);
+  margin-bottom: 8px;
+  padding-left: 2px;
+}
+
+.quiz2 .symptom-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.quiz2 .symptom-icon {
+  font-size: 26px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.symptom-text {
-  font-size: 17px;
+.quiz2 .symptom-text {
+  font-size: 15px;
   line-height: 1.2;
 }
 
-@media (max-width: 420px) {
-  .symptom-grid {
-    gap: 14px;
-  }
-
-  .symptom-pill {
-    min-height: 68px;
-    padding: 0 14px;
-    gap: 10px;
-  }
-
-  .symptom-icon {
-    font-size: 24px;
-  }
-
-  .symptom-text {
-    font-size: 15px;
-  }
+.material-symbols-outlined {
+  font-size: inherit;
+  line-height: 1;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 24;
 }
+
+/* mobile fallback */
+
 @media (max-width: 420px) {
+  body {
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
   .app-shell {
-    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .app-screen {
-    width: 100%;
-    min-height: 100vh;
-    padding: 20px 16px 24px;
+    padding: 20px 16px 22px;
   }
 
-  .pain-track {
+  .quiz1 .pain-track {
     width: 132px;
     height: 470px;
   }
 
-  .pain-labels {
+  .quiz1 .pain-labels {
     height: 470px;
+  }
+
+  .quiz2 .symptom-pill {
+    min-height: 88px;
+    padding: 10px 12px;
+  }
+
+  .quiz2 .symptom-icon {
+    font-size: 24px;
+    width: 28px;
+  }
+
+  .quiz2 .symptom-text {
+    font-size: 14px;
   }
 }
