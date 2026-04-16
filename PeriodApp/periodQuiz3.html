@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Period Quiz 3</title>
+  <link rel="stylesheet" href="period.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="app-screen quiz-screen quiz3">
+
+      <div class="quiz3-scroll">
+
+        <div class="top-row">
+          <div id="currentDate">Loading date...</div>
+          <div class="calendar-icon">📅</div>
+        </div>
+
+        <div class="progress-row">
+          <div class="progress-pill filled"></div>
+          <div class="progress-pill filled"></div>
+          <div class="progress-pill filled"></div>
+          <div class="progress-pill"></div>
+          <div class="progress-pill"></div>
+        </div>
+
+        <div class="quiz3-card">
+
+          <div class="picker-section">
+            <div class="picker-title-row">
+              <span class="picker-icon">🛏️</span>
+              <h2 class="picker-title">How many hours did you sleep?</h2>
+            </div>
+            <div class="wheel-picker" data-min="0" data-max="12" data-step="1" data-unit="Hr" data-default="4"></div>
+          </div>
+
+          <div class="picker-section">
+            <div class="picker-title-row">
+              <span class="picker-icon">💼</span>
+              <h2 class="picker-title">How many hours did you work?</h2>
+            </div>
+            <div class="wheel-picker" data-min="0" data-max="12" data-step="1" data-unit="Hr" data-default="3"></div>
+          </div>
+
+          <div class="picker-section">
+            <div class="picker-title-row">
+              <span class="picker-icon">🍕</span>
+              <h2 class="picker-title">How many meals did you eat?</h2>
+            </div>
+            <div class="wheel-picker" data-min="0" data-max="8" data-step="1" data-unit="Meal" data-default="3"></div>
+          </div>
+
+          <div class="picker-section">
+            <div class="picker-title-row">
+              <span class="picker-icon">💧</span>
+              <h2 class="picker-title">How much water did you drink?</h2>
+            </div>
+            <div class="wheel-picker" data-min="0" data-max="12" data-step="1" data-unit="Cup" data-default="6"></div>
+          </div>
+
+          <div class="picker-section">
+            <div class="picker-title-row">
+              <span class="picker-icon">📱</span>
+              <h2 class="picker-title">How many hours of screen time?</h2>
+            </div>
+            <div class="wheel-picker" data-min="0" data-max="16" data-step="1" data-unit="Hr" data-default="5"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <a href="periodQuiz2.html" class="nav-btn">←</a>
+        <a href="periodHomepage.html" class="nav-btn">⌂</a>
+        <a href="periodQuiz4.html" class="nav-btn">→</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="period.js"></script>
+</body>
+</html>
