@@ -215,78 +215,155 @@ body {
 }
 
 /* quiz 1 slider page */
+/* QUIZ 1 (slider page) */
 
+.quiz1 {
+  padding-top: 20px;
+}
+
+.quiz1 .top-row {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.quiz1 .calendar-icon {
+  font-size: 14px;
+}
+
+.quiz1 .progress-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.quiz1 .progress-pill {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.quiz1 .progress-pill.filled {
+  background: #ff8d8d;
+}
+
+.quiz1 .quiz-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  margin: 0 0 18px;
+  max-width: 260px;
+}
+
+/* 🔥 THIS is the main fix */
 .quiz1 .pain-area {
   display: flex;
+  justify-content: center;
   align-items: flex-start;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
+  width: 100%;
+  flex: 1; /* pushes nav to bottom */
 }
 
+/* slider container */
 .quiz1 .pain-track {
-  width: 145px;
-  height: 520px;
-  border-radius: 32px;
-  background: linear-gradient(to top, #da9595 0 70%, #efc7c7 70% 100%);
-  border: 2px solid #ee6666;
+  width: 170px;
+  height: 500px;
+  border-radius: 34px;
+  border: 2px solid #ff5a5a;
+  background: linear-gradient(
+    to top,
+    #d98f8f 0 65%,
+    transparent 65% 100%
+  );
   position: relative;
-  margin-left: 6px;
-  touch-action: none;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
+/* fill area */
 .quiz1 .pain-fill {
   position: absolute;
-  left: 0;
   bottom: 0;
   width: 100%;
-  height: 50%;
-  background: #da9595;
-  border-radius: 0 0 30px 30px;
+  height: 65%;
+  background: #d98f8f;
+  border-radius: 0 0 34px 34px;
 }
 
+/* knob (small, left side like mockup) */
 .quiz1 .pain-knob {
-  width: 56px;
-  height: 56px;
-  border-radius: 20px;
-  background: linear-gradient(to bottom, #f146dd, #d88db7);
+  width: 26px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(to bottom, #ff45e6, #d98db8);
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: calc(50% - 28px);
+  left: 22px; /* 👈 important: not centered */
+  top: calc(35% - 24px);
   cursor: grab;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .quiz1 .pain-knob:active {
   cursor: grabbing;
 }
 
+/* right side labels */
 .quiz1 .pain-labels {
-  height: 520px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 8px 0;
-  flex: 1;
+  padding: 10px 0;
+  width: 70px;
 }
 
+/* each row */
 .quiz1 .pain-label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
+/* white tick lines */
 .quiz1 .pain-line {
-  display: block;
-  width: 42px;
+  width: 26px;
   height: 4px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.95);
+  background: white;
 }
 
+/* emojis */
 .quiz1 .pain-emoji {
-  font-size: 20px;
-  line-height: 1;
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+/* next button */
+.quiz1 .quiz-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.quiz1 .next-step-btn {
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: #de9999;
+  font-size: 11px;
+}
+
+/* nav */
+.quiz1 .nav-bar {
+  margin-top: 0;
+  gap: 14px;
+}
+
+.quiz1 .nav-btn {
+  height: 32px;
+  font-size: 15px;
 }
 
 /* quiz 2 symptom page */
