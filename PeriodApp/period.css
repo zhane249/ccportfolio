@@ -71,6 +71,7 @@ body {
   justify-content: space-between;
   gap: 14px;
   margin-top: auto;
+  padding-top: 18px;
 }
 
 .nav-btn {
@@ -86,12 +87,6 @@ body {
   font-size: 15px;
   font-weight: bold;
 }
-
-.nav-btn:hover,
-.next-step-btn:hover {
-  filter: brightness(0.97);
-}
-
 /* homepage */
 
 .homepage {
