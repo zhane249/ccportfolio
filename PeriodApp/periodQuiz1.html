@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Period Quiz 1</title>
+  <link rel="stylesheet" href="period.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="app-screen quiz-screen" data-step="1">
+      
+      <div class="top-row">
+        <div id="currentDate">Loading date...</div>
+        <div class="calendar-icon">📅</div>
+      </div>
 
+      <div class="progress-row">
+        <div class="progress-pill filled"></div>
+        <div class="progress-pill"></div>
+        <div class="progress-pill"></div>
+        <div class="progress-pill"></div>
+        <div class="progress-pill"></div>
+      </div>
+
+      <h2 class="quiz-title">How much pain are you feeling today?</h2>
+
+      <div class="pain-area">
+        <div class="pain-track" id="painTrack">
+          <div class="pain-fill" id="painFill"></div>
+          <div class="pain-knob" id="painKnob"></div>
+        </div>
+
+        <div class="pain-labels">
+          <div class="pain-label">
+            <span class="pain-line"></span>
+            <span class="pain-emoji">👌</span>
+          </div>
+          <div class="pain-label">
+            <span class="pain-line"></span>
+            <span class="pain-emoji">🙂</span>
+          </div>
+          <div class="pain-label">
+            <span class="pain-line"></span>
+            <span class="pain-emoji">😣</span>
+          </div>
+          <div class="pain-label">
+            <span class="pain-line"></span>
+            <span class="pain-emoji">☹️</span>
+          </div>
+          <div class="pain-label">
+            <span class="pain-line"></span>
+            <span class="pain-emoji">😐</span>
+          </div>
+          <div class="pain-label">
+            <span class="pain-line"></span>
+            <span class="pain-emoji">😵</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-bottom">
+        <a href="periodQuiz2.html" class="next-step-btn">Next Step ❯</a>
+      </div>
+
+      <div class="nav-bar">
+        <a href="periodHomepage.html" class="nav-btn">←</a>
+        <a href="periodHomepage.html" class="nav-btn">⌂</a>
+        <a href="periodQuiz2.html" class="nav-btn">→</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="period.js"></script>
+</body>
+</html>
