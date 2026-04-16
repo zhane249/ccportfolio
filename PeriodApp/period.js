@@ -45,22 +45,37 @@ function setupPainSlider() {
 
   let isDragging = false;
 
-  function setSliderPosition(clientY) {
-    const trackRect = track.getBoundingClientRect();
+  function setPosition(clientY) {
+    const rect = track.getBoundingClientRect();
     const knobHeight = knob.offsetHeight;
-    const maxTop = track.offsetHeight - knobHeight;
 
-    let newTop = clientY - trackRect.top - knobHeight / 2;
+    let y = clientY - rect.top - knobHeight / 2;
 
-    if (newTop < 0) newTop = 0;
-    if (newTop > maxTop) newTop = maxTop;
+    const max = track.offsetHeight - knobHeight;
 
-    knob.style.top = `${newTop}px`;
+    if (y < 0) y = 0;
+    if (y > max) y = max;
 
-    const fillHeight = track.offsetHeight - (newTop + knobHeight / 2);
+    knob.style.top = `${y}px`;
+
+    const fillHeight = track.offsetHeight - (y + knobHeight / 2);
     fill.style.height = `${fillHeight}px`;
   }
 
+  track.addEventListener("pointerdown", (e) => {
+    isDragging = true;
+    setPosition(e.clientY);
+  });
+
+  window.addEventListener("pointermove", (e) => {
+    if (!isDragging) return;
+    setPosition(e.clientY);
+  });
+
+  window.addEventListener("pointerup", () => {
+    isDragging = false;
+  });
+}
   function startDrag(e) {
     isDragging = true;
     if (e.pointerId !== undefined) {
