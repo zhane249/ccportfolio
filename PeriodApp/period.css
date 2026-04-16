@@ -289,6 +289,13 @@ body {
   width: 20px;
   text-align: center;
 }
+.quiz1 .pain-track {
+  touch-action: none;
+}
+
+.quiz1 .pain-knob {
+  touch-action: none;
+}
 
 /* quiz 2 */
 
