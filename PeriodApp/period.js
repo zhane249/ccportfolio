@@ -82,3 +82,37 @@ function setupPainSlider() {
     setSliderPosition(e.clientY);
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentDateEl = document.getElementById("currentDate");
+  const statusNumberEl = document.getElementById("statusNumber");
+  const nextCycleNumberEl = document.getElementById("nextCycleNumber");
+
+  if (currentDateEl) {
+    currentDateEl.textContent = formatCurrentDate();
+  }
+
+  if (statusNumberEl) {
+    statusNumberEl.textContent = randomInt(1, 28);
+  }
+
+  if (nextCycleNumberEl) {
+    nextCycleNumberEl.textContent = `${randomInt(20, 40)} days`;
+  }
+
+  setupPainSlider();
+  setupSymptomButtons();
+});
+
+function setupSymptomButtons() {
+  const symptomButtons = document.querySelectorAll(".symptom-pill");
+
+  if (!symptomButtons.length) return;
+
+  symptomButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("selected");
+    });
+  });
+}
+
