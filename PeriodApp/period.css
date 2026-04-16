@@ -19,43 +19,45 @@ body {
   background: #efc7c7;
   overflow: hidden;
   position: relative;
-  border-radius: 36px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .app-screen {
   width: 100%;
   height: 100%;
-  padding: 22px 16px 22px;
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
 }
 
-/* shared top section */
+/* shared top */
 
 .top-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
-  margin-bottom: 12px;
+  font-size: 14px;
+  margin-bottom: 14px;
 }
 
 .calendar-icon {
   font-size: 14px;
 }
 
+/* shared progress */
+
 .progress-row {
   display: flex;
   gap: 8px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .progress-pill {
   flex: 1;
-  height: 8px;
+  height: 7px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .progress-pill.filled {
@@ -67,13 +69,13 @@ body {
 .nav-bar {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 14px;
   margin-top: auto;
 }
 
 .nav-btn {
   flex: 1;
-  height: 38px;
+  height: 32px;
   background: #de9999;
   border-radius: 999px;
   display: flex;
@@ -81,7 +83,7 @@ body {
   align-items: center;
   text-decoration: none;
   color: #5b2a2a;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -90,21 +92,14 @@ body {
   filter: brightness(0.97);
 }
 
-/* homepage only */
-
-
+/* homepage */
 
 .homepage {
   padding-top: 42px;
 }
 
 .homepage .top-row {
-  font-size: 14px;
   margin-bottom: 48px;
-}
-
-.homepage .calendar-icon {
-  font-size: 14px;
 }
 
 .homepage .status-box {
@@ -177,7 +172,6 @@ body {
 }
 
 .homepage .nav-bar {
-  margin-top: 0;
   gap: 16px;
 }
 
@@ -189,101 +183,69 @@ body {
 /* quiz shared */
 
 .quiz-screen .quiz-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.35;
-  margin: 0 0 20px;
+  margin: 0 0 26px;
 }
 
 .quiz-screen .quiz-bottom {
   display: flex;
   justify-content: flex-end;
-  margin-top: 22px;
-  margin-bottom: 20px;
+  margin-top: 18px;
+  margin-bottom: 16px;
 }
 
 .quiz-screen .next-step-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 14px;
   background: #de9999;
   color: #1f1414;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
 }
 
-/* quiz 1 slider page */
-/* QUIZ 1 (slider page) */
+/* quiz 1 */
 
 .quiz1 {
   padding-top: 20px;
 }
 
 .quiz1 .top-row {
-  font-size: 14px;
   margin-bottom: 10px;
 }
 
-.quiz1 .calendar-icon {
-  font-size: 14px;
-}
-
 .quiz1 .progress-row {
-  display: flex;
-  gap: 8px;
   margin-bottom: 24px;
 }
 
-.quiz1 .progress-pill {
-  flex: 1;
-  height: 7px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.quiz1 .progress-pill.filled {
-  background: #ff8d8d;
-}
-
-.quiz1 .quiz-title {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.35;
-  margin: 0 0 18px;
-  max-width: 260px;
-}
-
-/* 🔥 THIS is the main fix */
 .quiz1 .pain-area {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   width: 100%;
-  flex: 1; /* pushes nav to bottom */
+  flex: 1;
 }
 
-/* slider container */
 .quiz1 .pain-track {
   width: 170px;
-  height: 500px;
+  height: 460px;
   border-radius: 34px;
   border: 2px solid #ff5a5a;
-  background: linear-gradient(
-    to top,
-    #d98f8f 0 65%,
-    transparent 65% 100%
-  );
+  background: #efc7c7;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  touch-action: none;
 }
 
-/* fill area */
 .quiz1 .pain-fill {
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
   height: 65%;
@@ -291,41 +253,39 @@ body {
   border-radius: 0 0 34px 34px;
 }
 
-/* knob (small, left side like mockup) */
 .quiz1 .pain-knob {
   width: 26px;
   height: 48px;
   border-radius: 16px;
   background: linear-gradient(to bottom, #ff45e6, #d98db8);
   position: absolute;
-  left: 22px; /* 👈 important: not centered */
+  left: 22px;
   top: calc(35% - 24px);
   cursor: grab;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  touch-action: none;
 }
 
 .quiz1 .pain-knob:active {
   cursor: grabbing;
 }
 
-/* right side labels */
 .quiz1 .pain-labels {
-  height: 500px;
+  height: 460px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px 0;
   width: 70px;
+  flex-shrink: 0;
 }
 
-/* each row */
 .quiz1 .pain-label {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-/* white tick lines */
 .quiz1 .pain-line {
   width: 26px;
   height: 4px;
@@ -333,40 +293,13 @@ body {
   background: white;
 }
 
-/* emojis */
 .quiz1 .pain-emoji {
   font-size: 18px;
   width: 20px;
   text-align: center;
 }
 
-/* next button */
-.quiz1 .quiz-bottom {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-  margin-bottom: 16px;
-}
-
-.quiz1 .next-step-btn {
-  padding: 6px 12px;
-  border-radius: 14px;
-  background: #de9999;
-  font-size: 11px;
-}
-
-/* nav */
-.quiz1 .nav-bar {
-  margin-top: 0;
-  gap: 14px;
-}
-
-.quiz1 .nav-btn {
-  height: 32px;
-  font-size: 15px;
-}
-
-/* quiz 2 symptom page */
+/* quiz 2 */
 
 .quiz2 .symptom-grid {
   display: grid;
@@ -444,11 +377,8 @@ body {
     "opsz" 24;
 }
 
-/* mobile fallback */
-
 @media (max-width: 420px) {
   body {
-    min-height: 100vh;
     justify-content: center;
     align-items: center;
   }
@@ -461,16 +391,15 @@ body {
   }
 
   .app-screen {
-    padding: 20px 16px 22px;
+    padding: 14px 16px 16px;
   }
 
   .quiz1 .pain-track {
-    width: 132px;
-    height: 470px;
+    height: 460px;
   }
 
   .quiz1 .pain-labels {
-    height: 470px;
+    height: 460px;
   }
 
   .quiz2 .symptom-pill {
