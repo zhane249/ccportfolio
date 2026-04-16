@@ -171,6 +171,22 @@ body {
   margin-bottom: 0;
 }
 
+
+.home-image-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image {
+  max-width: 240px;
+  max-height: 260px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .homepage .nav-bar {
   margin-top: auto;
 }
