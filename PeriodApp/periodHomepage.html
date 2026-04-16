@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Period App Homepage</title>
+  <link rel="stylesheet" href="period.css" />
+</head>
+<body>
+  <div class="phone-screen">
+    <div class="app-card">
 
+      <div class="top-row">
+        <div id="currentDate">Loading date...</div>
+        <div class="calendar-icon">📅</div>
+      </div>
+
+      <div class="status-box">
+        <h1>Status:</h1>
+        <div class="status-values">
+          <div class="pill">Day</div>
+          <div class="pill" id="statusNumber">1</div>
+        </div>
+      </div>
+
+      <div class="cycle-row">
+        <span>Next Cycle:</span>
+        <span id="nextCycleNumber">28 days</span>
+      </div>
+
+      <div class="info-box">
+        <div class="info-left">
+          Based on<br />past data...
+        </div>
+        <div class="info-right">
+          You should drink<br />
+          more than 2 liters of<br />
+          water today.
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <a href="index.html" class="nav-btn" title="Back">←</a>
+        <a href="periodHomepage.html" class="nav-btn" title="Homepage">⌂</a>
+        <a href="periodQuiz.html" class="nav-btn" title="Next">→</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="period.js"></script>
+</body>
+</html>
