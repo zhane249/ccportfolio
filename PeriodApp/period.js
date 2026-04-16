@@ -112,116 +112,108 @@ function createWheelPicker(picker, index) {
     values.push(v);
   }
 
-  const itemHeight = 28;
-  const visibleRows = 5;
-  const centerRow = 2;
-
-  let selectedIndex = Math.max(0, values.indexOf(defaultValue));
-  if (selectedIndex === -1) selectedIndex = 0;
+  const itemHeight = 26;
+  const visiblePadding = 2;
+  let selectedIndex = values.indexOf(defaultValue);
+  if (selectedIndex < 0) selectedIndex = 0;
 
   picker.innerHTML = `
     <div class="wheel-highlight"></div>
-    <div class="wheel-center-guide"></div>
+    <div class="wheel-window-fade-top"></div>
+    <div class="wheel-window-fade-bottom"></div>
     <div class="wheel-column wheel-column-main"></div>
     <div class="wheel-column wheel-column-unit"></div>
-    <input type="hidden" class="wheel-value-output" name="wheel-picker-${index}" />
+    <input type="hidden" class="wheel-value-output" name="wheel-picker-${index}">
   `;
 
   const mainCol = picker.querySelector(".wheel-column-main");
   const unitCol = picker.querySelector(".wheel-column-unit");
   const output = picker.querySelector(".wheel-value-output");
 
-  let translateY = 0;
-  let startY = 0;
-  let startTranslateY = 0;
-  let dragging = false;
-
-  function buildColumnContent(column, contentArray) {
-    column.innerHTML = "";
-    contentArray.forEach((text) => {
-      const item = document.createElement("div");
-      item.className = "wheel-item";
-      item.textContent = text;
-      column.appendChild(item);
-    });
-  }
-
-  function getPaddedValueItems() {
-    const padded = ["", "", ...values.map(String), "", ""];
-    return padded;
-  }
-
-  function getPaddedUnitItems() {
-    const padded = ["", "", ...values.map((v) => formatUnit(v, unit)), "", ""];
-    return padded;
-  }
-
   function formatUnit(value, unitText) {
     if (!unitText) return "";
 
     const lower = unitText.toLowerCase();
 
-    if (lower === "hr") {
-      return value === 1 ? "Hr" : "Hr";
-    }
-    if (lower === "meal") {
-      return value === 1 ? "Meal" : "Meals";
-    }
-    if (lower === "cup") {
-      return value === 1 ? "Cup" : "Cups";
-    }
-    if (lower === "min") {
-      return "Min";
-    }
-
+    if (lower === "hr") return "Hr";
+    if (lower === "meal") return value === 1 ? "Meal" : "Meals";
+    if (lower === "cup") return value === 1 ? "Cup" : "Cups";
+    if (lower === "min") return "Min";
     return unitText;
   }
 
-  buildColumnContent(mainCol, getPaddedValueItems());
-  buildColumnContent(unitCol, getPaddedUnitItems());
+  const paddedValues = [
+    ...Array(visiblePadding).fill(""),
+    ...values.map(String),
+    ...Array(visiblePadding).fill("")
+  ];
 
-  function getSnapTranslate(indexValue) {
-    return -(indexValue * itemHeight);
+  const paddedUnits = [
+    ...Array(visiblePadding).fill(""),
+    ...values.map(v => formatUnit(v, unit)),
+    ...Array(visiblePadding).fill("")
+  ];
+
+  mainCol.innerHTML = paddedValues
+    .map(v => `<div class="wheel-item">${v}</div>`)
+    .join("");
+
+  unitCol.innerHTML = paddedUnits
+    .map(v => `<div class="wheel-item">${v}</div>`)
+    .join("");
+
+  let dragging = false;
+  let dragStartY = 0;
+  let startTranslate = 0;
+  let translate = 0;
+
+  function clampIndex(i) {
+    return Math.max(0, Math.min(values.length - 1, i));
   }
 
-  function clampIndex(indexValue) {
-    if (indexValue < 0) return 0;
-    if (indexValue > values.length - 1) return values.length - 1;
-    return indexValue;
+  function getCenterOffset() {
+    return (picker.clientHeight / 2) - (itemHeight / 2);
   }
 
-  function updateWheelVisuals() {
-    mainCol.style.transform = `translateY(${translateY}px)`;
-    unitCol.style.transform = `translateY(${translateY}px)`;
+  function getTranslateForIndex(i) {
+    return getCenterOffset() - ((i + visiblePadding) * itemHeight);
+  }
 
-    const allMainItems = mainCol.querySelectorAll(".wheel-item");
-    const allUnitItems = unitCol.querySelectorAll(".wheel-item");
+  function getIndexFromTranslate(t) {
+    const raw = (getCenterOffset() - t) / itemHeight - visiblePadding;
+    return clampIndex(Math.round(raw));
+  }
 
-    allMainItems.forEach((item, i) => {
-      item.classList.remove("active", "faded");
-      const actualIndex = i - 2;
-      const distance = Math.abs(actualIndex - selectedIndex);
+  function applyTranslate() {
+    mainCol.style.transform = `translateY(${translate}px)`;
+    unitCol.style.transform = `translateY(${translate}px)`;
+  }
 
-      if (actualIndex < 0 || actualIndex >= values.length) {
-        item.classList.add("faded");
-      } else if (distance === 0) {
+  function updateVisuals() {
+    const mainItems = mainCol.querySelectorAll(".wheel-item");
+    const unitItems = unitCol.querySelectorAll(".wheel-item");
+
+    mainItems.forEach((item, i) => {
+      const realIndex = i - visiblePadding;
+      const dist = Math.abs(realIndex - selectedIndex);
+      item.classList.remove("active", "near");
+
+      if (realIndex === selectedIndex) {
         item.classList.add("active");
-      } else {
-        item.classList.add("faded");
+      } else if (dist === 1) {
+        item.classList.add("near");
       }
     });
 
-    allUnitItems.forEach((item, i) => {
-      item.classList.remove("active", "faded");
-      const actualIndex = i - 2;
-      const distance = Math.abs(actualIndex - selectedIndex);
+    unitItems.forEach((item, i) => {
+      const realIndex = i - visiblePadding;
+      const dist = Math.abs(realIndex - selectedIndex);
+      item.classList.remove("active", "near");
 
-      if (actualIndex < 0 || actualIndex >= values.length) {
-        item.classList.add("faded");
-      } else if (distance === 0) {
+      if (realIndex === selectedIndex) {
         item.classList.add("active");
-      } else {
-        item.classList.add("faded");
+      } else if (dist === 1) {
+        item.classList.add("near");
       }
     });
 
@@ -230,40 +222,41 @@ function createWheelPicker(picker, index) {
   }
 
   function snapToNearest() {
-    const rawIndex = Math.round(-translateY / itemHeight);
-    selectedIndex = clampIndex(rawIndex);
-    translateY = getSnapTranslate(selectedIndex);
-    updateWheelVisuals();
+    selectedIndex = getIndexFromTranslate(translate);
+    translate = getTranslateForIndex(selectedIndex);
+    applyTranslate();
+    updateVisuals();
   }
 
-  function setFromClientY(clientY) {
-    const delta = clientY - startY;
-    translateY = startTranslateY + delta;
+  function setByDrag(clientY) {
+    const delta = clientY - dragStartY;
+    translate = startTranslate + delta;
 
-    const minTranslate = getSnapTranslate(values.length - 1);
-    const maxTranslate = getSnapTranslate(0);
+    const minTranslate = getTranslateForIndex(values.length - 1);
+    const maxTranslate = getTranslateForIndex(0);
 
-    if (translateY < minTranslate) translateY = minTranslate;
-    if (translateY > maxTranslate) translateY = maxTranslate;
+    if (translate < minTranslate) translate = minTranslate;
+    if (translate > maxTranslate) translate = maxTranslate;
 
-    mainCol.style.transform = `translateY(${translateY}px)`;
-    unitCol.style.transform = `translateY(${translateY}px)`;
+    applyTranslate();
   }
 
-  translateY = getSnapTranslate(selectedIndex);
-  updateWheelVisuals();
+  selectedIndex = clampIndex(selectedIndex);
+  translate = getTranslateForIndex(selectedIndex);
+  applyTranslate();
+  updateVisuals();
 
   picker.addEventListener("pointerdown", (e) => {
     dragging = true;
-    startY = e.clientY;
-    startTranslateY = translateY;
+    dragStartY = e.clientY;
+    startTranslate = translate;
     picker.setPointerCapture(e.pointerId);
     e.preventDefault();
   });
 
   picker.addEventListener("pointermove", (e) => {
     if (!dragging) return;
-    setFromClientY(e.clientY);
+    setByDrag(e.clientY);
     e.preventDefault();
   });
 
@@ -289,8 +282,9 @@ function createWheelPicker(picker, index) {
       selectedIndex = clampIndex(selectedIndex - 1);
     }
 
-    translateY = getSnapTranslate(selectedIndex);
-    updateWheelVisuals();
+    translate = getTranslateForIndex(selectedIndex);
+    applyTranslate();
+    updateVisuals();
   }, { passive: false });
 
   picker.addEventListener("click", (e) => {
@@ -308,7 +302,13 @@ function createWheelPicker(picker, index) {
       return;
     }
 
-    translateY = getSnapTranslate(selectedIndex);
-    updateWheelVisuals();
+    translate = getTranslateForIndex(selectedIndex);
+    applyTranslate();
+    updateVisuals();
+  });
+
+  window.addEventListener("resize", () => {
+    translate = getTranslateForIndex(selectedIndex);
+    applyTranslate();
   });
 }
