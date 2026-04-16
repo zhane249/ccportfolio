@@ -92,34 +92,49 @@ body {
 
 /* homepage only */
 
+
+
+.homepage {
+  padding-top: 42px;
+}
+
+.homepage .top-row {
+  font-size: 14px;
+  margin-bottom: 48px;
+}
+
+.homepage .calendar-icon {
+  font-size: 14px;
+}
+
 .homepage .status-box {
-  border: 2px solid #4f9cff;
-  border-radius: 34px;
+  border: none;
+  border-radius: 42px;
   background: #de9999;
-  padding: 14px 12px 16px;
+  padding: 18px 18px 24px;
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 34px;
 }
 
 .homepage .status-box h1 {
-  margin: 0 0 10px;
+  margin: 0 0 18px;
   color: white;
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 400;
 }
 
 .homepage .status-values {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 18px;
 }
 
 .homepage .pill {
   background: #e7aaaa;
-  border-radius: 14px;
-  padding: 9px 18px;
-  font-size: 14px;
-  min-width: 56px;
+  border-radius: 18px;
+  padding: 14px 24px;
+  font-size: 18px;
+  min-width: 84px;
   text-align: center;
 }
 
@@ -127,24 +142,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  padding: 0 2px;
-  margin-bottom: 14px;
+  font-size: 16px;
+  padding: 0 20px;
+  margin-bottom: 28px;
 }
 
 .homepage .info-box {
   background: #de9999;
-  border-radius: 14px;
-  padding: 14px;
+  border-radius: 16px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  min-height: 118px;
+  min-height: 126px;
   margin-bottom: 18px;
 }
 
 .homepage .info-left {
-  width: 40%;
+  width: 38%;
   font-family: serif;
   font-size: 15px;
   text-align: center;
@@ -153,12 +168,22 @@ body {
 }
 
 .homepage .info-right {
-  width: 48%;
+  width: 46%;
   background: #d9d9d9;
-  border-radius: 12px;
-  padding: 12px 10px;
-  font-size: 11px;
+  border-radius: 14px;
+  padding: 14px 10px;
+  font-size: 10px;
   line-height: 1.35;
+}
+
+.homepage .nav-bar {
+  margin-top: 0;
+  gap: 16px;
+}
+
+.homepage .nav-btn {
+  height: 32px;
+  font-size: 16px;
 }
 
 /* quiz shared */
