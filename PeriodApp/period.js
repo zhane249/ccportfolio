@@ -312,3 +312,21 @@ function createWheelPicker(picker, index) {
     applyTranslate();
   });
 }
+function setupResultsPage() {
+  const statusEl = document.getElementById("resultsStatus");
+  const imageEl = document.getElementById("resultsImage");
+
+  if (!statusEl || !imageEl) return;
+
+  const isHealthy = Math.random() < 0.5;
+
+  if (isHealthy) {
+    statusEl.textContent = "HEALTHY";
+    imageEl.src = "happyRaccoon.png";
+    imageEl.alt = "Healthy result illustration";
+  } else {
+    statusEl.textContent = "UNHEALTHY";
+    imageEl.src = "dogFire.png";
+    imageEl.alt = "Unhealthy result illustration";
+  }
+}
