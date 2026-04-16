@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Period Quiz 2</title>
   <link rel="stylesheet" href="period.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
 </head>
 <body>
   <div class="app-shell">
@@ -12,7 +17,7 @@
 
       <div class="top-row">
         <div id="currentDate">Loading date...</div>
-        <div class="calendar-icon">📅</div>
+        <div class="calendar-icon"><i class="fa-regular fa-calendar"></i></div>
       </div>
 
       <div class="progress-row">
@@ -27,43 +32,67 @@
 
       <div class="symptom-grid">
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">🚫</span>
-          <span class="symptom-text">No discharge</span>
+          <span class="symptom-label-mini">Discharge</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-solid fa-ban"></i></span>
+            <span class="symptom-text">No discharge</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">🔋</span>
-          <span class="symptom-text">Fatigue</span>
+          <span class="symptom-label-mini">Energy</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-regular fa-battery-half"></i></span>
+            <span class="symptom-text">Fatigue</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">🧻</span>
-          <span class="symptom-text">Diarrhea</span>
+          <span class="symptom-label-mini">Toilet</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-solid fa-toilet-paper"></i></span>
+            <span class="symptom-text">Diarrhea</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">🔨</span>
-          <span class="symptom-text">Headache</span>
+          <span class="symptom-label-mini">Pain</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-solid fa-hammer"></i></span>
+            <span class="symptom-text">Headache</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">🤢</span>
-          <span class="symptom-text">Nausea</span>
+          <span class="symptom-label-mini">Stomach</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-regular fa-face-dizzy"></i></span>
+            <span class="symptom-text">Nausea</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">😵</span>
-          <span class="symptom-text">Dizziness</span>
+          <span class="symptom-label-mini">Balance</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-solid fa-wind"></i></span>
+            <span class="symptom-text">Dizziness</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">💢</span>
-          <span class="symptom-text">Cramps</span>
+          <span class="symptom-label-mini">Pain</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-solid fa-burst"></i></span>
+            <span class="symptom-text">Cramps</span>
+          </span>
         </button>
 
         <button class="symptom-pill" type="button">
-          <span class="symptom-icon">😖</span>
-          <span class="symptom-text">Back pain</span>
+          <span class="symptom-label-mini">Body</span>
+          <span class="symptom-main">
+            <span class="symptom-icon"><i class="fa-solid fa-person"></i></span>
+            <span class="symptom-text">Back pain</span>
+          </span>
         </button>
       </div>
 
@@ -72,7 +101,7 @@
       </div>
 
       <div class="nav-bar">
-        <a href="periodQuiz1.html" class="nav-btn">←</a>
+        <a href="#" class="nav-btn" onclick="history.back(); return false;">←</a>
         <a href="periodHomepage.html" class="nav-btn">⌂</a>
         <a href="periodQuiz3.html" class="nav-btn">→</a>
       </div>
