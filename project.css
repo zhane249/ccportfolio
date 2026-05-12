@@ -33,7 +33,7 @@ h1, h2, p {
 }
 
 body a {
-  color: #39ff14 !important;
+  color: #ffff1a !important;
 }
 
 body a:visited {
@@ -41,5 +41,5 @@ body a:visited {
 }
 
 body a:hover {
-  color: #ffff1a !important;
+  color: #39ff14 !important;
 }
