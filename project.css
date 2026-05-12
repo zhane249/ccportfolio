@@ -32,14 +32,14 @@ h1, h2, p {
   max-width: 800px;
 }
 
-a {
-  color: #39ff14;
+body a {
+  color: #39ff14 !important;
 }
 
-a:visited {
-  color: #ff6a00;
+body a:visited {
+  color: #ff6a00 !important;
 }
 
-a:hover {
-  color: #ffff1a;
+body a:hover {
+  color: #ffff1a !important;
 }
