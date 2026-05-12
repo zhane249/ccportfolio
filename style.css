@@ -376,3 +376,15 @@ nav li {
   width: 600px;
   height: 600px;
 }
+
+body > a {
+  color: #ffff1a;
+}
+
+body > a:visited {
+  color: #ff6a00;
+}
+
+body > a:hover {
+  color: #39ff14;
+}
