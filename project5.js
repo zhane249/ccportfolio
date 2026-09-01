@@ -10,7 +10,11 @@ function sketch1(p) {
   let wrist;
   let middleTip;
   let point;
-
+  //new library sketch code 
+  p.preload = function () {
+    handPose = ml5.handPose();
+  };
+  
   p.setup = function () {
     const c = p.createCanvas(600, 600);
     c.parent("canvas1");
@@ -19,10 +23,26 @@ function sketch1(p) {
     video = p.createCapture(p.VIDEO);
     video.size(p.width, p.height);
     video.hide();
-
-    handPose = ml5.handpose(video);
-    handPose.on("hand", gotHands);
-    console.log(handPose);
+    //new p5 library code 
+//error detection for delay     
+const startDetection = () => {
+  try {
+    handPose.detectStart(video, gotHands);
+    console.log('handpose detectStart: started');
+  } catch (e) {
+    console.warn('detectStart failed, will retry shortly', e);
+  }
+}
+if (handPose && handPose.ready && typeof handPose.ready.then === 'function') {
+  handPose.ready.then(startDetection);
+} else {
+  video.elt.onloadeddata = startDetection;
+  setTimeout(startDetection, 400);  
+  setTimeout(startDetection, 1000); 
+}
+    // old p5 library code
+    // handPose = ml5.handpose(video);
+    // handPose.on("hand", gotHands);
   };
 
   function gotHands(results) {
@@ -30,7 +50,6 @@ function sketch1(p) {
   }
 
   p.draw = function () {
-    console.log('canvas sketch');
     p.background(0);
     p.image(video, 0, 0, p.width, p.height);
     window.handsData.length = 0;
@@ -106,7 +125,6 @@ function sketch2(p) {
   };
 
   p.draw = function () {
-      console.log('canvas sketch 2');
     p.background(20);
 
     if (!Array.isArray(window.handsData)) return;
