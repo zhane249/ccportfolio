@@ -21,6 +21,7 @@ function sketch1(p) {
     video.hide();
 
     handPose = ml5.handpose(video, gotHands);
+    console.log(handPose);
   };
 
   function gotHands(results) {
@@ -28,6 +29,7 @@ function sketch1(p) {
   }
 
   p.draw = function () {
+    console.log('canvas sketch');
     p.background(0);
     p.image(video, 0, 0, p.width, p.height);
     window.handsData.length = 0;
@@ -103,6 +105,7 @@ function sketch2(p) {
   };
 
   p.draw = function () {
+      console.log('canvas sketch 2');
     p.background(20);
 
     if (!Array.isArray(window.handsData)) return;
