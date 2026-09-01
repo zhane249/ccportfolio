@@ -20,7 +20,8 @@ function sketch1(p) {
     video.size(p.width, p.height);
     video.hide();
 
-    handPose = ml5.handpose(video, gotHands);
+    handPose = ml5.handpose(video);
+    handPose.on("hand", gotHands);
     console.log(handPose);
   };
 
