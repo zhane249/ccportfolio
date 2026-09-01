@@ -52,11 +52,11 @@ if (handPose && handPose.ready && typeof handPose.ready.then === 'function') {
   p.draw = function () {
     p.background(0);
     p.image(video, 0, 0, p.width, p.height);
-    window.handsData.length = 0;
-
+    // window.handsData.length = 0;
+  window.handsData = [];
     wrist = undefined;
     middleTip = undefined;
-
+console.log(hands);
     if (!Array.isArray(hands)) return;
 
     for (let i = 0; i < hands.length; i++) {
